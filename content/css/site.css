@@ -57,7 +57,17 @@ form .form-control{
     height: 100px;
     border-radius: 20px;
     font-size: 40px;
+    margin:20px;
 }
 .answer{
     margin-bottom: 50px;
+}
+.second-question{
+    display:none;
+}
+.clue-container{
+    display:none;
+}
+.progress{
+    margin-bottom: 30px;
 }
