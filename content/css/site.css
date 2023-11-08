@@ -8,11 +8,11 @@ body{
 div.begin{
     margin-top:50px;
     padding:50px;
-    font-size: 120px;
+    font-size: 80px;
     color: white;
 }
 .begin .countdown{
-    font-size: 600px;
+    font-size: 300px;
     color:#31708e
 }
 .confetti {
