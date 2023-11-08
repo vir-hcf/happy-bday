@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="./content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./content/css/site.css" rel="stylesheet" />
+    <title>First Question</title>
+</head>
+<body>
+    <div class="container begin">
+        <div class="row" id="main-sm">
+            <div class="col text-center question">
+                <p>
+                    Name the first food item<br/> that Amar offered you?
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <form novalidate>
+                    <div class="row">
+                        <div class="col text-capitalize text-center answer">
+                            <input type="text" class="form-control" id="input01" value="">
+                            <input type="text" class="form-control" id="input02" value="">
+                            <input type="text" class="form-control" id="input03" value="">
+                            <input type="text" class="form-control" id="input04" value="">
+                            <input type="text" class="form-control" id="input05" value="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="button" class="btn btn-primary" id="answer">AM I RIGHT?</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./content/js/bootstrap.bundle.min.js"></script>
+    <script src="./content/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $("[id *= input]").keyup(function(){
+            if($(this).val().length == 1){
+                $(this).next().focus();
+            }
+        })
+        $("#answer").click(function(){
+            var answer = $("#input01").val() + $("#input02").val() + $("#input03").val() + $("#input04").val() + $("#input05").val();
+            if(answer.toLowerCase() == "maggi"){
+                $("[id *= input]").css("border-color", "green");
+            }
+            else{
+                $("[id *= input]").css("border-color", "rgb(148, 26, 37)");
+            }
+        
+        })
+    </script>
+</body>
+    
+</html>
