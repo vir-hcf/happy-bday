@@ -53,7 +53,7 @@ div.begin{
 }
 form .form-control{
     display: inline-block;
-    width: 10%;
+    width: 60px;
     height: 100px;
     border-radius: 20px;
     font-size: 40px;
