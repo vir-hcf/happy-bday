@@ -29,8 +29,8 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col">
-                                <button type="button" class="btn btn-primary" id="answer">AM I RIGHT?</button>
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-primary" id="answer-button"></button>
                             </div>
                         </div>
                     </form>
@@ -57,13 +57,13 @@
             {question:"Name the first food item<br/> that Amar offered you?",answer:"maggi"},
             {question:"What was your first impression<br/>of Harmeet?",answer:"scary"}
         ];
-        
+        var timeOutInMsOnSuccessOrFailure = 2000;
         var currentQuestionIndex = 0;
         $(document).ready(function(){
             generateQuestion(0);
             generateInputs(0);
         });
-        $("#answer").click(function(){
+        $("#answer-button").click(function(){
             var answer = getUserInput();
             var correctAnswer = questionsAndAnswer[currentQuestionIndex].answer;
             if(answer == correctAnswer){
@@ -74,17 +74,19 @@
                     currentQuestionIndex++;
                     generateQuestion(currentQuestionIndex);
                     generateInputs(currentQuestionIndex);
-                    }, 2000);
+                    }, timeOutInMsOnSuccessOrFailure);
                 }else{
-                    $(".progress-bar").css("width", "100%");
-                    showClue();
+                    setTimeout(function(){
+                        $(".progress-bar").css("width", "100%");
+                        showClue();
+                    }, timeOutInMsOnSuccessOrFailure);
                 }
             }else{
                 $("[id *= input]").css("border", "3px solid red");
                 setTimeout(function(){
                     $("[id *= input]").css("border", "1px solid #ced4da");
                     $("[id *= input]").val("");
-                }, 2000);
+                }, timeOutInMsOnSuccessOrFailure);
             }
         });
 
@@ -97,6 +99,7 @@
             return answer.toLowerCase();
         }
         function generateQuestion(index){
+            $(document).scrollTop(0);
             var question = questionsAndAnswer[index].question;
             $(".question").html(question);
         }

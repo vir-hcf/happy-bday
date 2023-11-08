@@ -19,8 +19,8 @@ div.begin{
     min-height: 700px;
 }
 #main-sm{
-    min-height: 200px;
-    font-size: 50px;
+    min-height: 100px;
+    font-size: 30px;
 }
 #main .birthday-message, #main .adventure{
     display: none;
@@ -47,27 +47,24 @@ div.begin{
     color:white;
     border-color: white;
 }
-#main .question{
-    font-size: 40px;
-    color: #31708e;
-}
 form .form-control{
     display: inline-block;
-    width: 60px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 20px;
-    font-size: 40px;
-    margin:20px;
+    font-size: 30px;
+    margin:10px;
 }
 .answer{
-    margin-bottom: 50px;
-}
-.second-question{
-    display:none;
+    margin-bottom: 30px;
 }
 .clue-container{
     display:none;
 }
 .progress{
     margin-bottom: 30px;
+}
+#answer-button{
+    width:50%;
+    font-size: 30px;
 }
