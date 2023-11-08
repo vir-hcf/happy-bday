@@ -11,8 +11,8 @@ function startCountDown() {
   var countDown = 9;
   let timeout = setInterval(function() {
     if(countDown == 9){
-      var audio = new Audio('./content/audio/timer.wav');
-      audio.play();
+    //   var audio = new Audio('./content/audio/timer.wav');
+    //   audio.play();
     }
     if(countDown == -1){
       clearInterval(timeout);
