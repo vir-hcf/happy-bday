@@ -9,20 +9,24 @@ div.begin{
     margin-top:50px;
     padding:50px;
     font-size: 80px;
-    color: white;
+    color: #31708e;
 }
 .begin .countdown{
     font-size: 300px;
-    color:#31708e
+    color:#31708e;
+    
+}
+#main .birthday-message, #main .adventure{
+    display: none;
 }
 .confetti {
-    background-image: url("../images/giphy_2.gif");
+    background-image: url("../images/giphy_sm.gif");
     background-position: 0%;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .btn-primary{
-    font-size:50px;
+    font-size:40px;
     border-color: white;
     width:80%;
     background-color: #31708e;

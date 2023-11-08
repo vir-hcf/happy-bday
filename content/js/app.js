@@ -1,6 +1,5 @@
 $(document).ready(function(){
-    $("#main .birthday-message").hide();
-    $("#main .adventure").hide();
+
 });
 
 $("#begin").click(function(){
