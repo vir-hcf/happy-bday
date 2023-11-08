@@ -19,8 +19,12 @@ div.begin{
 #main .birthday-message, #main .adventure{
     display: none;
 }
+#main .adventure{
+    font-size: 40px;
+    color: #31708e;
+}
 .confetti {
-    background-image: url("../images/giphy_sm.gif");
+    background-image: url("../images/giphy\ \(1\).gif");
     background-position: 0%;
     background-repeat: no-repeat;
     background-size: cover;
