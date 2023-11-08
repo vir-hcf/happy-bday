@@ -15,12 +15,13 @@ function startCountDown() {
     //   audio.play();
     }
     if(countDown == -1){
+      $("body").addClass("confetti");
       clearInterval(timeout);
       $("#main .birthday-message").fadeIn(5000);
       setTimeout(function(){
         $("#main .adventure").fadeIn(5000);
       },5000);
-      $("body").addClass("confetti");
+      
       $("#main .countdown").hide();
     }else{
       $("#main .countdown").html(countDown);
