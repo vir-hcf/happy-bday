@@ -7,12 +7,12 @@
     <!-- Bootstrap CSS -->
     <link href="./content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./content/css/site.css" rel="stylesheet" />
-    <title>First Question</title>
+    <title>First</title>
 </head>
 <body>
     <div class="container begin">
         <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success text-center" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <div class="question-container">
             <div class="row" id="main-sm">
@@ -40,11 +40,6 @@
         <div class="clue-container">
             <div class="row">
                 <div class="col text-center">
-                    <h1>CLUE</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
                     <h3>Ask Amar to drive to <br/>106 Rainforest Dr</h3>
                 </div>
             </div>
@@ -53,76 +48,17 @@
     <script src="./content/js/bootstrap.bundle.min.js"></script>
     <script src="./content/js/jquery-3.7.1.min.js"></script>
     <script>
-        var questionsAndAnswer = [
-            {question:"Name the first food item<br/> that Amar offered you?",answer:"maggi"},
-            {question:"What was your first impression<br/>of Harmeet?",answer:"scary"}
-        ];
-        var timeOutInMsOnSuccessOrFailure = 2000;
         var currentQuestionIndex = 0;
-        $(document).ready(function(){
-            generateQuestion(0);
-            generateInputs(0);
-        });
-        $("#answer-button").click(function(){
-            var answer = getUserInput();
-            var correctAnswer = questionsAndAnswer[currentQuestionIndex].answer;
-            if(answer == correctAnswer){
-                $("[id *= input]").css("border", "3px solid green");
-                if(currentQuestionIndex < questionsAndAnswer.length - 1){
-                    setTimeout(function(){
-                        $(".progress-bar").css("width", (currentQuestionIndex + 1) * ((1/questionsAndAnswer.length)*100) + "%" );
-                    currentQuestionIndex++;
-                    generateQuestion(currentQuestionIndex);
-                    generateInputs(currentQuestionIndex);
-                    }, timeOutInMsOnSuccessOrFailure);
-                }else{
-                    setTimeout(function(){
-                        $(".progress-bar").css("width", "100%");
-                        showClue();
-                    }, timeOutInMsOnSuccessOrFailure);
-                }
-            }else{
-                $("[id *= input]").css("border", "3px solid red");
-                setTimeout(function(){
-                    $("[id *= input]").css("border", "1px solid #ced4da");
-                    $("[id *= input]").val("");
-                }, timeOutInMsOnSuccessOrFailure);
-            }
-        });
+        var questionsAndAnswer = [{question:"Name of the food which Amar offered you for the very first time?",answer:"maggi"},
+                {question:"Enter the month and year when you made your first reel with Amar?",answer:"december2021"},
+                {question:"Who do you call your constant?",answer:"amar"}];
 
-        function getUserInput(){
-            var answer = "";
-            $("[id *= input]").each(function(){
-                answer += $(this).val();
-            });
-            console.log(answer);
-            return answer.toLowerCase();
-        }
-        function generateQuestion(index){
-            $(document).scrollTop(0);
-            var question = questionsAndAnswer[index].question;
-            $(".question").html(question);
-        }
-        function generateInputs(index){
-            var noOfInputs = questionsAndAnswer[index].answer.length;
-            console.log(noOfInputs);
-            var innerHtml = "";
-            $(".inputs").html("");
-            for(let i=0;i<noOfInputs;i++){
-                innerHtml +=  "<input type='text' class='form-control' id='input"+i+"' value=''>";
-            }
-            $(".inputs").html(innerHtml);
-            $("[id *= input]").keyup(function(){
-                if($(this).val().length == 1){
-                    $(this).next().focus();
-                }
-            });
-        }
-        function showClue() {
-            $(".question-container").hide();
-            $(".clue-container").fadeIn(3000);
-        }
+        $(document).ready(function(){
+            generateQuestion(currentQuestionIndex);
+            generateInputs(currentQuestionIndex);
+        });
     </script>
+    <script src="./content/js/adventure.js"></script>
 </body>
     
 </html>

@@ -49,17 +49,23 @@ div.begin{
 }
 form .form-control{
     display: inline-block;
-    width: 80px;
+    width: 60px;
     height: 80px;
     border-radius: 20px;
-    font-size: 30px;
-    margin:10px;
+    font-size: 20px;
+    margin-right:10px;
+    text-transform: uppercase;
 }
 .answer{
     margin-bottom: 30px;
 }
 .clue-container{
     display:none;
+    background-image: url("../images/env.png");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    min-height: 500px;
+    background-position-y: -200px;
 }
 .progress{
     margin-bottom: 30px;
