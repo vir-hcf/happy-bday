@@ -1,24 +1,36 @@
 var timeOutInMsOnSuccessOrFailure = 2000;
+var timeoutForNextQuestion = 7000;
 $("#answer-button").click(function(){
     var answer = getUserInput();
     var correctAnswer = questionsAndAnswer[currentQuestionIndex].answer;
     if(answer == correctAnswer){
         $("[id *= input]").css("border", "3px solid green");
+        appreciate();
         if(currentQuestionIndex < questionsAndAnswer.length - 1){
             setTimeout(function(){
                 $(".progress-bar").css("width", (currentQuestionIndex + 1) * ((1/questionsAndAnswer.length)*100) + "%" );
             currentQuestionIndex++;
             generateQuestion(currentQuestionIndex);
             generateInputs(currentQuestionIndex);
-            }, timeOutInMsOnSuccessOrFailure);
+            $(".appreciation-container").hide();
+            $(".hint-container button").click();
+            $(".hint-container").hide();
+            }, timeoutForNextQuestion);
         }else{
             setTimeout(function(){
                 $(".progress-bar").css("width", "100%");
                 showClue();
-            }, timeOutInMsOnSuccessOrFailure);
+            }, timeoutForNextQuestion);
         }
+        
     }else{
         $("[id *= input]").css("border", "3px solid red");
+        if(questionsAndAnswer[currentQuestionIndex].wrongAttemptCount < 5)
+            questionsAndAnswer[currentQuestionIndex].wrongAttemptCount++;
+        
+        if(questionsAndAnswer[currentQuestionIndex].wrongAttemptCount == 5){
+            showHint(questionsAndAnswer[currentQuestionIndex].hint);
+        }
         setTimeout(function(){
             $("[id *= input]").css("border", "1px solid #ced4da");
             $("[id *= input]").val("");
@@ -57,4 +69,13 @@ function showClue() {
     $(".question-container").hide();
     $(".clue-container").fadeIn(3000);
     $(".progress-bar").html("Great Job! Anju");
+}
+function showHint(hint) {
+    $(".hint-container").fadeIn(3000);
+    $(".hint-container #hint").html(hint);
+}
+function appreciate() {
+    $(".appreciation-container").fadeIn(1000);
+    var appreciation = appreciationTokens[currentQuestionIndex];
+    $(".appreciation-container .alert").html(appreciation);
 }

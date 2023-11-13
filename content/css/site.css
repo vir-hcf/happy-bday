@@ -74,3 +74,13 @@ form .form-control{
     width:50%;
     font-size: 30px;
 }
+.hint-container{
+    display:none;
+}
+#hint{
+    font-size: 20px;
+}
+.appreciation-container{
+    font-size:25px;
+    display:none;
+}

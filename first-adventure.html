@@ -36,6 +36,25 @@
                     </form>
                 </div>
             </div>
+            <div class="row appreciation-container">
+                <div class="col">
+                    <div class="alert alert-success" role="alert">
+                        
+                      </div>
+                </div>
+            </div>
+            <div class="row hint-container">
+                <div class="col text-center">
+                    <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Really Anju? &#128533; You need a hint?
+                    </button>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body" id="hint">
+                          
+                        </div>
+                      </div>
+                </div>
+            </div>
         </div>
         <div class="clue-container">
             <div class="row">
@@ -49,9 +68,14 @@
     <script src="./content/js/jquery-3.7.1.min.js"></script>
     <script>
         var currentQuestionIndex = 0;
-        var questionsAndAnswer = [{question:"Name of the food which Amar offered you for the very first time?",answer:"maggi"},
-                {question:"Enter the month and year when you made your first reel with Amar?",answer:"december2021"},
-                {question:"Who do you call your constant?",answer:"amar"}];
+        
+        var questionsAndAnswer = [{question:"Who do you call your constant?",answer:"amar",wrongAttemptCount:0, hint: "Person with you right now"},
+            {question:"Name of the food which Amar offered you for the very first time?",answer:"maggi",wrongAttemptCount:0, hint: "2 minutes"},
+            {question:"What was your first impression of Harmeet?",answer:"scary",wrongAttemptCount:0, hint: "<p>&#128552;</p>"}];
+
+        var appreciationTokens = ["It was easy peasy. Coming questions are going to be haaard.. Be prepared",
+        "Well done! Anju. Keep it up. Hope you didn't used the hint. If you needed then Amar will let you know her feelings :)",
+        "Yeah!!! First adventure is completed. Next adventure is going to be more fun. Stay tuned"];
 
         $(document).ready(function(){
             generateQuestion(currentQuestionIndex);
