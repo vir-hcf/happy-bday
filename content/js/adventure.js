@@ -87,6 +87,7 @@ function nextQuestionClick() {
     generateQuestion(currentQuestionIndex);
     generateInputs(currentQuestionIndex);
     $(".appreciation-container").hide();
+    $(".appreciation-container .alert span.message").html("");
     if($("#collapseExample").hasClass("show"))
         $(".hint-container button").click();
     $(".hint-container").hide();
