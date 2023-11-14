@@ -1,10 +1,12 @@
 var timeOutInMsOnSuccessOrFailure = 2000;
 var timeoutForNextQuestion = 11000;
+var typed;
 $("#answer-button").click(function(){
     var answer = getUserInput();
     var correctAnswer = questionsAndAnswer[currentQuestionIndex].answer;
     if(answer == correctAnswer){
         $("[id *= input]").css("border", "3px solid green");
+        questionsAndAnswer[currentQuestionIndex].wrongAttemptCount = 0;
         appreciate();
         handleNextQuestion();   
     }else{
@@ -66,7 +68,7 @@ function showHint(hint) {
 function appreciate() {
     $(".appreciation-container").show();
     var appreciation = appreciationTokens[currentQuestionIndex];
-    var typed = new Typed('.appreciation-container .alert span.message', {
+    typed = new Typed('.appreciation-container .alert span.message', {
         strings: [appreciation],
         typeSpeed: 50,
       });
@@ -74,7 +76,6 @@ function appreciate() {
 function handleNextQuestion(){
     if(currentQuestionIndex < questionsAndAnswer.length - 1){
         $(".progress-bar").css("width", (currentQuestionIndex + 1) * ((1/questionsAndAnswer.length)*100) + "%" );
-        currentQuestionIndex++;
         $("#next-button").show(); 
     }else{
         setTimeout(function(){
@@ -84,6 +85,7 @@ function handleNextQuestion(){
     }
 }
 function nextQuestionClick() {
+    currentQuestionIndex++;
     generateQuestion(currentQuestionIndex);
     generateInputs(currentQuestionIndex);
     $(".appreciation-container").hide();
@@ -91,5 +93,6 @@ function nextQuestionClick() {
     if($("#collapseExample").hasClass("show"))
         $(".hint-container button").click();
     $(".hint-container").hide();
+    typed.destroy();
 }
 

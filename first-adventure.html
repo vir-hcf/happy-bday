@@ -28,10 +28,22 @@
 
                             </div>
                         </div>
+                        <div class="row hint-container">
+                            <div class="col text-center">
+                                <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    Really Anju? &#128533; You need a hint?
+                                </button>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body" id="hint">
+                                      
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col text-center">
                                 <button type="button" class="btn btn-primary" id="answer-button">CHECK</button>
-                                <button type="button" class="btn btn-success" id="next-button">>>></button>
+                                <button type="button" class="btn btn-success" id="next-button">GO >></button>
                             </div>
                         </div>
                     </form>
@@ -44,18 +56,7 @@
                       </div>
                 </div>
             </div>
-            <div class="row hint-container">
-                <div class="col text-center">
-                    <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Really Anju? &#128533; You need a hint?
-                    </button>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body" id="hint">
-                          
-                        </div>
-                      </div>
-                </div>
-            </div>
+            
         </div>
         <div class="clue-container">
             <div class="row">
@@ -75,7 +76,7 @@
             {question:"What was your first impression of Harmeet?",answer:"scary",wrongAttemptCount:0, hint: "<p>&#128552;</p>"}];
 
         var appreciationTokens = ["It was easy peasy. Coming questions are going to be haaard.. Be prepared",
-        "Well done! Anju. Keep it up. Hope you didn't used the hint. If you needed then Amar will let you know her feelings :)",
+        "Well done! Anju. Keep it up. Hope you didn't use the hint. If you did then Amar will let you know her feelings &#129324;",
         "Yeah!!! First adventure is completed. Next adventure is going to be more fun. Stay tuned"];
 
         $(document).ready(function(){
