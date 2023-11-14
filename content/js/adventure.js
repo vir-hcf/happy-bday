@@ -1,28 +1,12 @@
 var timeOutInMsOnSuccessOrFailure = 2000;
-var timeoutForNextQuestion = 7000;
+var timeoutForNextQuestion = 11000;
 $("#answer-button").click(function(){
     var answer = getUserInput();
     var correctAnswer = questionsAndAnswer[currentQuestionIndex].answer;
     if(answer == correctAnswer){
         $("[id *= input]").css("border", "3px solid green");
         appreciate();
-        if(currentQuestionIndex < questionsAndAnswer.length - 1){
-            setTimeout(function(){
-                $(".progress-bar").css("width", (currentQuestionIndex + 1) * ((1/questionsAndAnswer.length)*100) + "%" );
-            currentQuestionIndex++;
-            generateQuestion(currentQuestionIndex);
-            generateInputs(currentQuestionIndex);
-            $(".appreciation-container").hide();
-            $(".hint-container button").click();
-            $(".hint-container").hide();
-            }, timeoutForNextQuestion);
-        }else{
-            setTimeout(function(){
-                $(".progress-bar").css("width", "100%");
-                showClue();
-            }, timeoutForNextQuestion);
-        }
-        
+        handleNextQuestion();   
     }else{
         $("[id *= input]").css("border", "3px solid red");
         if(questionsAndAnswer[currentQuestionIndex].wrongAttemptCount < 5)
@@ -34,8 +18,13 @@ $("#answer-button").click(function(){
         setTimeout(function(){
             $("[id *= input]").css("border", "1px solid #ced4da");
             $("[id *= input]").val("");
+            $("[id *= input]")[0].focus();
         }, timeOutInMsOnSuccessOrFailure);
     }
+});
+$("#next-button").click(function(){
+    nextQuestionClick();
+    $(this).hide();
 });
 
 function getUserInput(){
@@ -56,7 +45,7 @@ function generateInputs(index){
     var innerHtml = "";
     $(".inputs").html("");
     for(let i=0;i<noOfInputs;i++){
-        innerHtml +=  "<input type='text' class='form-control' id='input"+i+"' value=''>";
+        innerHtml +=  "<input type='text' maxlength='1' class='form-control' id='input"+i+"' value=''>";
     }
     $(".inputs").html(innerHtml);
     $("[id *= input]").keyup(function(){
@@ -75,7 +64,31 @@ function showHint(hint) {
     $(".hint-container #hint").html(hint);
 }
 function appreciate() {
-    $(".appreciation-container").fadeIn(1000);
+    $(".appreciation-container").show();
     var appreciation = appreciationTokens[currentQuestionIndex];
-    $(".appreciation-container .alert").html(appreciation);
+    var typed = new Typed('.appreciation-container .alert span.message', {
+        strings: [appreciation],
+        typeSpeed: 50,
+      });
 }
+function handleNextQuestion(){
+    if(currentQuestionIndex < questionsAndAnswer.length - 1){
+        $(".progress-bar").css("width", (currentQuestionIndex + 1) * ((1/questionsAndAnswer.length)*100) + "%" );
+        currentQuestionIndex++;
+        $("#next-button").show(); 
+    }else{
+        setTimeout(function(){
+            $(".progress-bar").css("width", "100%");
+            showClue();
+        }, timeoutForNextQuestion);
+    }
+}
+function nextQuestionClick() {
+    generateQuestion(currentQuestionIndex);
+    generateInputs(currentQuestionIndex);
+    $(".appreciation-container").hide();
+    if($("#collapseExample").hasClass("show"))
+        $(".hint-container button").click();
+    $(".hint-container").hide();
+}
+

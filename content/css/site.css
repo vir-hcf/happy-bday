@@ -84,3 +84,6 @@ form .form-control{
     font-size:25px;
     display:none;
 }
+.btn-success{
+    display:none;
+}
