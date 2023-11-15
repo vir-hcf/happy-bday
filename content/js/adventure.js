@@ -47,12 +47,16 @@ function generateInputs(index){
     var innerHtml = "";
     $(".inputs").html("");
     for(let i=0;i<noOfInputs;i++){
-        innerHtml +=  "<input type='text' maxlength='1' class='form-control' id='input"+i+"' value=''>";
+        let isLast = i == noOfInputs -1 ? true : false;
+        innerHtml +=  "<input type='text' maxlength='1' class='form-control' id='input"+i+"' value='' data-isLast='"+isLast+"'>";
     }
     $(".inputs").html(innerHtml);
     $("[id *= input]").keyup(function(){
         if($(this).val().length == 1){
             $(this).next().focus();
+        }
+        if($(this).attr("data-isLast") == 'true'){
+            $("#answer-button").focus();
         }
     });
 }

@@ -19,7 +19,7 @@ div.begin{
     min-height: 700px;
 }
 #main-sm{
-    min-height: 100px;
+    min-height: 50px;
     font-size: 30px;
 }
 #main .birthday-message, #main .adventure{
@@ -50,11 +50,13 @@ div.begin{
 form .form-control{
     display: inline-block;
     width: 60px;
-    height: 80px;
-    border-radius: 20px;
+    height: 60px;
+    border-radius: 10px;
     font-size: 20px;
-    margin-right:10px;
+    margin-right:5px;
     text-transform: uppercase;
+    text-align: center;
+    font-weight: bolder;
 }
 .answer{
     margin-bottom: 30px;

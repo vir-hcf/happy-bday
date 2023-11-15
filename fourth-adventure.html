@@ -7,12 +7,12 @@
     <!-- Bootstrap CSS -->
     <link href="./content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./content/css/site.css" rel="stylesheet" />
-    <title>First</title>
+    <title>Fourth Adventure</title>
 </head>
 <body>
     <div class="container begin">
         <div class="progress">
-            <div class="progress-bar bg-success" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar bg-success text-center" role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <div class="question-container">
             <div class="row" id="main-sm">
@@ -28,24 +28,41 @@
 
                             </div>
                         </div>
+                        <div class="row hint-container">
+                            <div class="col text-center">
+                                <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                    Really Anju? &#128533; You need a hint?
+                                </button>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body" id="hint">
+                                      
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="row appreciation-container">
+                            <div class="col">
+                                <div class="alert alert-success" role="alert">
+                                    <span class="message"></span>
+                                  </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col text-center">
                                 <button type="button" class="btn btn-primary" id="answer-button">CHECK</button>
+                                <button type="button" class="btn btn-success" id="next-button">GO >></button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+           
+            
         </div>
         <div class="clue-container">
             <div class="row">
                 <div class="col text-center">
-                    <h1>CLUE</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col text-center">
-                    <h3>Ask Amar to drive to <br/>106 Rainforest Dr</h3>
+                    <h3>Now look at exhausted Amar <br/>go with her to<br/>soccer center</h3>
                 </div>
             </div>
         </div>
@@ -54,15 +71,19 @@
     <script src="./content/js/jquery-3.7.1.min.js"></script>
     <script>
         var currentQuestionIndex = 0;
-        var questionsAndAnswer = [{question:"Name of the food which Amar offered you for the very first time?",answer:"maggi"},
-                {question:"Enter the month and year when you made your first reel with Amar?",answer:"december2021"},
-                {question:"Who do you call your constant?",answer:"amar"}];
+        
+        var questionsAndAnswer = [{question:"Name the first movie that you and Amar watched?",answer:"sufna",wrongAttemptCount:0, hint: "Featuring Tania"},
+            {question:"PALM COURT reminds you?",answer:"keys",wrongAttemptCount:0, hint: "A lock may have one/more ____"}];
+
+        var appreciationTokens = ["Ok Anju. If you have reached here without any hints. Hats Off to you.",
+        "We do not know the story of Palm court. But you are writing history in this game."];
 
         $(document).ready(function(){
             generateQuestion(currentQuestionIndex);
             generateInputs(currentQuestionIndex);
         });
     </script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="./content/js/adventure.js"></script>
 </body>
     
