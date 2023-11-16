@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 });
 
-$("#begin").click(function(){
+$("#begin-button").click(function(){
   $(this).hide();
   startCountDown();
 });

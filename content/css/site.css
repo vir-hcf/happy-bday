@@ -6,15 +6,14 @@ body{
     background-color: #f7f9fb;
 }
 div#begin{
-    margin-top:50px;
-    padding:50px 20px 20px 20px;
+    margin-top:100px;
     font-size: 80px;
     color: #31708e;
 }
 .container{
     color: #31708e;
 }
-.begin .countdown{
+#begin .countdown{
     font-size: 300px;
     color:#31708e;  
 }
@@ -33,7 +32,7 @@ div#begin{
     color: #31708e;
 }
 .confetti {
-    background-image: url("../images/giphy.gif");
+    background-image: url("../images/giphy2.gif");
     background-position: 0%;
     background-repeat: no-repeat;
     background-size: cover;
