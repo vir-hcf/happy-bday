@@ -14,7 +14,7 @@ function startCountDown() {
     //   audio.play();
     }
     if(countDown == -1){
-      $("#main").addClass("confetti");
+      $("#begin").addClass("confetti");
       clearInterval(timeout);
       $("#main .birthday-message").fadeIn(5000);
       setTimeout(function(){

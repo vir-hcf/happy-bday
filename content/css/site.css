@@ -6,7 +6,7 @@ body{
     background-color: #f7f9fb;
 }
 div#begin{
-    margin-top:100px;
+    padding-top:100px;
     font-size: 80px;
     color: #31708e;
 }
@@ -26,10 +26,10 @@ div#begin{
 }
 #main .birthday-message, #main .adventure{
     display: none;
+    color: #fff;
 }
 #main .adventure{
     font-size: 40px;
-    color: #31708e;
 }
 .confetti {
     background-image: url("../images/giphy2.gif");
