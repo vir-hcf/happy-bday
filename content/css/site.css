@@ -5,10 +5,13 @@ body{
     height: 100%;
     background-color: #f7f9fb;
 }
-div.begin{
+div#begin{
     margin-top:50px;
-    padding:50px;
+    padding:50px 20px 20px 20px;
     font-size: 80px;
+    color: #31708e;
+}
+.container{
     color: #31708e;
 }
 .begin .countdown{
@@ -57,6 +60,7 @@ form .form-control{
     text-transform: uppercase;
     text-align: center;
     font-weight: bolder;
+    margin-top:10px;
 }
 .answer{
     margin-bottom: 30px;
@@ -72,6 +76,10 @@ form .form-control{
 }
 .progress{
     margin-bottom: 30px;
+    margin-top: 30px;
+}
+div.button-row{
+    margin-top:30px;
 }
 #answer-button{
     width:50%;
@@ -86,8 +94,10 @@ form .form-control{
 .appreciation-container{
     font-size:20px;
     display:none;
-    margin-top:20px;
 }
 .btn-success{
     display:none;
+}
+.margin-top-30{
+    margin-top:30px;
 }
